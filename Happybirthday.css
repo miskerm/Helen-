@@ -1,0 +1,346 @@
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+    padding: 30px 15px;
+}
+
+/* BIRTHDAY CARD */
+
+.birthday-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(120, 0, 40, 0.2);
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADING */
+
+.small-text {
+    color: white;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.birthday-title {
+    color: white;
+    font-size: clamp(35px, 8vw, 55px);
+    text-shadow: 0 0 10px #ff1744, 0 0 25px #ff1744;
+    animation: birthdayGlow 2s infinite alternate;
+}
+
+@keyframes birthdayGlow {
+    from {
+        text-shadow: 0 0 10px #ff1744;
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 0 0 30px white, 0 0 45px #ff1744;
+        transform: scale(1.05);
+    }
+}
+
+.subtitle {
+    color: white;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* BIRTHDAY CAKE */
+
+.cake {
+    font-size: 90px;
+    margin: 25px 0;
+    animation: cakeBounce 2s infinite ease-in-out;
+}
+
+@keyframes cakeBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.message {
+    color: white;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+/* BUTTONS */
+
+button {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: white;
+    color: #e91e63;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #ffe4ec;
+    box-shadow: 0 5px 20px rgba(255,255,255,0.5);
+}
+
+/* LOVE QUESTION */
+
+.love-question {
+    margin: 30px 0;
+    color: white;
+    text-align: center;
+}
+
+.love-question h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.love-question p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 65px;
+}
+
+#yesButton {
+    background: #ff1744;
+    color: white;
+    min-width: 110px;
+}
+
+#noButton {
+    background: white;
+    color: #e91e63;
+    min-width: 110px;
+    z-index: 100;
+}
+
+/* HIDE ELEMENTS */
+
+.hidden {
+    display: none !important;
+}
+
+/* YES CELEBRATION */
+
+#celebration {
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+    animation: celebrationAppear 1s ease;
+}
+
+.love-title {
+    font-size: 32px;
+    animation: birthdayGlow 1.5s infinite alternate;
+}
+
+.celebration-cake {
+    font-size: 100px;
+    margin: 25px 0;
+    animation: cakeCelebration 1.2s infinite ease-in-out;
+}
+
+.love-message {
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.celebration-heart {
+    font-size: 55px;
+    animation: heartbeat 0.8s infinite;
+}
+
+@keyframes celebrationAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes cakeCelebration {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* HIDDEN SURPRISE */
+
+#surpriseButton {
+    margin-top: 15px;
+}
+#surpriseMessage {
+    margin-top: 25px;
+    padding: 25px;
+    color: white;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    animation: appear 1s ease;
+}
+
+#surpriseMessage h2 {
+    margin-bottom: 15px;
+}
+
+#surpriseMessage p {
+    line-height: 1.8;
+}
+
+.big-heart {
+    font-size: 45px;
+    margin-top: 15px;
+    animation: heartbeat 1s infinite;
+}
+
+/* FALLING ROSES */
+
+.rose {
+    position: fixed;
+    top: -60px;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 1;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* MUSIC BUTTON */
+
+.music-button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* FOOTER */
+
+footer {
+    color: white;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 480px) {
+    .birthday-container {
+        padding: 30px 18px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .cake {
+        font-size: 75px;
+    }
+
+    .love-question h2 {
+        font-size: 25px;
+    }
+
+    .love-message {
+        font-size: 16px;
+    }
+}
